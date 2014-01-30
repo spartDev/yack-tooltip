@@ -1,0 +1,93 @@
+/*  YACK TOOLTIPS
+--------------------------------------------------- */
+
+
+    // Settings
+    // ------------------------------------- */
+        $tooltip-height: 22px;
+        $tooltip-base-color: #323232;
+        $tooltip-base-radius: 3px;
+
+    // Tooltip core
+    // ------------------------------------- */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            &:before,
+            &:after {
+                position: absolute;
+                visibility: hidden;
+                opacity: 0;
+                z-index: 100;
+                pointer-events: none; // shouldn't receive pointer events, otherwise even hovering tooltip will make it appear
+                // Forced hardware accelerated rendering, otherwise transform was not working on a hidden element.
+                -webkit-transform: translate3d(0, 0, 0);
+                -moz-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                -webkit-transition: 0.3s ease;
+                -moz-transition: 0.3s ease;
+                transition: 0.3s ease;
+            }
+            &:before {
+                content: '';
+                border: 6px solid transparent;
+            }
+             &:after {
+                content: attr(data-tooltip);
+                height: $tooltip-height;
+                padding: $tooltip-height/2 $tooltip-height/2 0 $tooltip-height/2;
+                background: $tooltip-base-color;
+                color: #FFF;
+                font-size: 14px;
+                line-height: $tooltip-height/2;
+                white-space: nowrap;
+            }
+            &:hover, &:focus{
+                background-color: transparent;
+                &:before, &:after {
+                    opacity: 1;
+                    visibility: visible;
+                    -webkit-transform: translateX(10px);
+                }
+            }
+        }
+
+        .tooltip--left {
+            &:before,
+            &:after {
+                bottom: 50%;
+                right: 100%;
+            }
+            &:before{
+                margin-bottom: 6px * -1 + 1;
+                border-left: 6px solid $tooltip-base-color;
+                margin-right: -2px;
+            }
+            &:after {
+                margin-bottom: $tooltip-height/-1.5;
+                margin-right: 10px;
+            }
+        }
+
+        .tooltip--right {
+            &:before,
+            &:after {
+                bottom: 50%;
+                left: 100%;
+            }
+            &:before{
+                margin-bottom: 6px * -1 + 1;
+                border-right: 6px solid $tooltip-base-color;
+                margin-left: -2px;
+            }
+            &:after {
+                margin-bottom: $tooltip-height/-1.5;
+                margin-left: 10px;
+            }
+        }
+
+        .tooltip--radius {
+            &:after {
+                border-radius: $tooltip-base-radius;
+            }
+        }
