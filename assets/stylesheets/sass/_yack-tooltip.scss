@@ -47,6 +47,7 @@
                 &:before, &:after {
                     opacity: 1;
                     visibility: visible;
+                    -webkit-transform: translateX(10px);
                 }
             }
         }
