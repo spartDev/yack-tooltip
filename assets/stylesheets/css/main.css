@@ -397,8 +397,7 @@ th {
     background-color: transparent; }
     .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
       opacity: 1;
-      visibility: visible;
-      -webkit-transform: translateX(10px); }
+      visibility: visible; }
 
 .tooltip--left:before, .tooltip--left:after {
   bottom: 50%;
