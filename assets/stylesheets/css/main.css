@@ -423,3 +423,23 @@ th {
 
 .tooltip--radius:after {
   border-radius: 3px; }
+
+.tooltip--top:before, .tooltip--top:after {
+  left: 50%;
+  bottom: 100%; }
+.tooltip--top:before {
+  margin-bottom: -5px;
+  border-top: 6px solid #323232; }
+.tooltip--top:after {
+  margin-left: -18px;
+  margin-bottom: 7px; }
+
+.tooltip--bottom:before, .tooltip--bottom:after {
+  left: 50%;
+  top: 100%; }
+.tooltip--bottom:before {
+  margin-top: -5px;
+  border-bottom: 6px solid #323232; }
+.tooltip--bottom:after {
+  margin-left: -18px;
+  margin-top: 7px; }
